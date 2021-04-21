@@ -3,7 +3,7 @@
 
 **University ID:** 2015127575
 
-## Intall dependencies
+## Install dependencies
 To install dependencies, please use the following command:
 
     pip install -r requirements.txt
