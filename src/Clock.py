@@ -1,31 +1,25 @@
-# Dependencies
 import time
-import keyboard
-import threading
 
 class Clock:
+
     def __init__(self):
         self.clock = False
         self.reset = False
 
     def reset(self):
         self.reset = True
-    
+
     def run(self):
-        threading.Thread(target=self.printclock()).start()
+        global var
         while(True):
-            time.sleep(1)
-            if not keyboard.is_pressed('r'):
-                if (not self.reset):
-                    self.clock = not self.clock
-                    continue
-                else:    
-                    self.clock = 0
-                    time.sleep(1)
-                    self.reset = False
+            if (not self.reset):
+                time.sleep(1)
+                self.clock = not self.clock
             else:
-                self.reset()
-                
-    def printclock(self):
+                time.sleep(2)
+                self.reset = False
+    
+    def printClock(self):
         while(True):
             time.sleep(0.2)
+            print(self.clock)

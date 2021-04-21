@@ -5,3 +5,4 @@ root = Tk()
 
 root.title("CPU Simulator")
 root.geometry("800x600")
+root.mainloop()

@@ -1,4 +1,4 @@
-class mainMemory():
+class MainMemory():
     def __init__(self, blockSize):
         self.memBlock = [0]*blockSize # Creates a  memory block of size 8
 
@@ -7,6 +7,9 @@ class mainMemory():
     
     def writeTo(self, pos, data):
         self.memBlock[pos] = data
+
+    def printMem(self):
+        return self.memBlock
              
 
 
