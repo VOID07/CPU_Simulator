@@ -17,13 +17,13 @@ class Clock:
         global var
         while(True):
             if (not self.reset):
-                time.sleep(se)
+                time.sleep(self.freq)
                 self.clock = not self.clock
             else:
-                time.sleep(2)
+                time.sleep(self.freq)
                 self.reset = False
     
     def printClock(self):
         while(True):
-            time.sleep(0.2)
+            time.sleep(self.freq/10)
             print(self.clock)

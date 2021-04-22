@@ -13,12 +13,17 @@ import GUI
 CPU_GUI = threading.Thread(target=GUI.GUI).start()
 print("checkpoint")
 
-# Global configurations from .env file ans extract global values
+# Global configurations from .env file and extract global values
 global CONFIG
 CONFIG = dotenv_values(".env")
 
+# Extract valuies from config file
+
+FREQ = int(CONFIG["CLOCK_FREQ"])
+
 # Initialize clock
-clk = Clock.Clock()
+clk = Clock.Clock(FREQ)
+CPU_GUI.
 threading.Thread(target=clk.run).start()
 #threading.Thread(target=clk.printClock).start()
  
