@@ -8,6 +8,10 @@ from dotenv import dotenv_values
 # Import modules
 import Clock 
 import MainMemory
+import GUI
+
+CPU_GUI = threading.Thread(target=GUI.GUI).start()
+print("checkpoint")
 
 # Global configurations from .env file ans extract global values
 global CONFIG
