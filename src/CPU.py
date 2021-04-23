@@ -18,10 +18,12 @@ class CPU:
 
         # if statement approach used since the number of instructions is not expected to grow, hence, using easiest method
         if (p_instr == self.instTypes["READ"]):
-            self.L1.read(p_instr, p_addr)
+            #self.L1.read(p_instr, p_addr)
+            pass
 
         else if (p_instr == self.instTypes["WRITE"]):
-            self.L1.write(p_instr, p_addr, p_data)
+            #self.L1.write(p_instr, p_addr, p_data)
+            pass
 
         # Omited calc instruction, since it does only waits for the lagging time, and it is already taken at the begining of the function
 
