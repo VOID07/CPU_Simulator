@@ -12,6 +12,9 @@ class ControlUnit:
         self.INSTR_POOL = ["READ", "CALC", "WRITE"]
         self.lastClock = True
         self.procNumber = "P"+str(p_procNumber)+": "
+        self.instrType = ''
+        self.instrAddr = ''
+        self.instrData = ''
     
     def sleep(self):
         time.sleep(self.freq)
@@ -21,20 +24,22 @@ class ControlUnit:
         pass
 
     def generateInstr(self):
+        self.instrType = ''
+        self.instrAddr = ''
+        self.instrData = ''
         randNum = random.randrange(3) # Current size of the INSTR POOL is 3, discrete uniform probability
         instrType = self.INSTR_POOL[randNum] 
-
         self.lastInstr = self.procNumber + instrType
 
         if (randNum != 1):
             memPos = random.randrange(16)
-            memPos = ' '+bin(memPos).split('b')[1].zfill(4)
-            self.lastInstr += memPos
+            self.instrAddr = bin(memPos).split('b')[1].zfill(4)
+            self.lastInstr += ' ' + memPos
 
-            if (randNum == 2): # Instr is 
+            if (randNum == 2): # Instr is write
                 value = random.randrange(2**16)
-                value = "; " +  hex(value).split('x')[1].zfill(4).upper()
-                self.lastInstr += value
+                self.instrData = hex(value).split('x')[1].zfill(4).upper()
+                self.lastInstr += "; " +  value
         
         print(self.lastInstr)
 
